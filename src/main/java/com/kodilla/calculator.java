@@ -1,4 +1,4 @@
-class Kalkulator {
+class calculator {
     public static void main(String[] args) {
         calculator suma = new calculator();
         suma.sum();
