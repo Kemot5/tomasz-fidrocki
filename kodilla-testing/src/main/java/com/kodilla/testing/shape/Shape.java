@@ -1,11 +1,11 @@
-//package com.kodilla.testing.shape;
-//
-//
-//
-//public interface Shape {
-//
-//    String getShapeName();
-//
-//
-//    double getFieldName();
-//}
+package com.kodilla.testing.shape;
+
+
+
+public interface Shape {
+
+    String getShapeName();
+
+
+    double getFieldName();
+}
