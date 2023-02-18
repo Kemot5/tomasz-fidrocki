@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertNull;
+
 public class ShapeCollectorTestSuit {
     private static int testCounter = 0;
 
@@ -64,7 +66,7 @@ public class ShapeCollectorTestSuit {
             Squared squared = new Squared(3);
 
             //When
-            boolean result = shapeCollector.removeFigure(circle);
+            boolean result = shapeCollector.removeFigure(triangle);
             //Then
             Assertions.assertEquals(true, result);
 
@@ -78,22 +80,38 @@ public class ShapeCollectorTestSuit {
         void testshowFigure() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Circle circle = new Circle(1);
-            shapeCollector.addFigure(circle);
-            Triangle triangle = new Triangle(2);
-            shapeCollector.addFigure(triangle);
-            Squared squared = new Squared(3);
+            Shape shape = new Squared(7);
+            Shape shape1 = new Triangle(8);
+            Shape shape2 = new Circle(11);
+            shapeCollector.addFigure(shape);
+            shapeCollector.addFigure(shape1);
+            shapeCollector.addFigure(shape2);
+            List<Shape> shapeList = new ArrayList<>();
+            shapeList.add(shape);
+            shapeList.add(shape1);
+            shapeList.add(shape2);
 
+//When
+            List<Shape> resultList = shapeCollector.getShapeCollector();
 
-            //When
-            Shape result = shapeCollector.showFigure();
-            //Then
-            Assertions.assertEquals(null, result);
+//Then
+            Assertions.assertEquals(shapeList.toString(), resultList.toString());
         }
+    }
+    @Test
+    void testGetFigureNotExisting() {
+//Given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape shape = new Circle(4);
 
+//When
+        Shape result = shapeCollector.getFigure(0);
 
+//Then
+        assertNull(result);
+    }
 }
-}
+
 
 
 
