@@ -1,6 +1,10 @@
 //package com.kodilla.testing.library;
 //
 //
+//import com.kodilla.stream.testing.library.Book;
+//import com.kodilla.stream.testing.library.BookLibrary;
+//import com.kodilla.stream.testing.library.LibraryDatabase;
+//import com.kodilla.stream.testing.library.LibraryUser;
 //import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.extension.ExtendWith;
 //import org.mockito.Mock;
@@ -108,9 +112,13 @@
 //        LibraryUser libraryUser2 = new LibraryUser(" mr mat", "nowak", "807898");
 //        lista.add(libraryUser1);
 //        lista.add(libraryUser2);
-//        when(libraryUserMock.listBookInHandOf(libraryUser1)).thenReturn(generat);
+//        List<Book>lista2= generateListOfNBooks(5);
+//        List<Book>lista3= generateListOfNBooks(4);
+//       when(libraryDatabaseMock.listBookInHandOf(libraryUser1)).thenReturn(lista3);
 //        //When
-//        int result = libraryUser.
+//        int result = bookLibrary.listBookInHandOf(libraryUser1).size();
+//        LibraryUser expectResult= (LibraryUser) lista;
+//        assertEquals(expectResult,result);
 //
 //
 //    }

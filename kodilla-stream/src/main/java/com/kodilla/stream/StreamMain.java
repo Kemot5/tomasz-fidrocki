@@ -1,6 +1,7 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautfier.PoemBeautfier;
+import com.kodilla.stream.interate.NumbersGenerator;
 import com.kodilla.stream.lambda.ExecuteSaySomething;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.lambda.Processor;
@@ -36,6 +37,9 @@ public class StreamMain {
         System.out.println();;
         poemBeautfier1.beautify("Tulipan", "yelow",(name,colours)->name+"  Pospolity  "+colours);
 
-
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
     }
+
+
 }
