@@ -1,45 +1,35 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautfier.PoemBeautfier;
-import com.kodilla.stream.interate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExecuteSaySomething;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.lambda.SaySomething;
+
+import com.kodilla.stream.book.Book;
+import com.kodilla.stream.book.BookDirectory;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+
+import static java.time.LocalDate.*;
+
+
 
 public class StreamMain {
+
     public static void main(String[] args) {
+        Forum theForum = new Forum();
 
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+        Map<Integer, ForumUser> theResultOfMapForum = theForum.getList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.getDateBirth().isBefore(LocalDate.of(1990, 10, 15)))
+                .filter(forumUser -> forumUser.getQuantityPost() > 1)
+                .collect(Collectors.toMap(ForumUser::getNumberID, forumUser -> forumUser));
 
-        System.out.println("Calculating expressions with lambdas");
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-
-        System.out.println();
-
-        PoemBeautfier poemBeautfier = new PoemBeautfier();
-        System.out.println(" List of flouers");
-        poemBeautfier.beautify("Bratek", "zielony",(name,colours)->name+" "+colours);
-        System.out.println();
-        poemBeautfier.beautify("Róza", "czerwona",(name,colours)->name+"  "+colours);
-        System.out.println();
-        poemBeautfier.beautify("Tulipan", "yelow",(name,colours)->name+"  Pospolity  "+colours);
-
-        System.out.println();
-        PoemBeautfier poemBeautfier1 = new PoemBeautfier();
-        System.out.println(" polskie kiwaty");
-        poemBeautfier1.beautify("Bratek", "zielony",(name,colours)->name+" "+colours);
-        System.out.println();
-        poemBeautfier1.beautify("Róza", "czerwona",(name,colours)->name+"  "+colours);
-        System.out.println();;
-        poemBeautfier1.beautify("Tulipan", "yelow",(name,colours)->name+"  Pospolity  "+colours);
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+        System.out.println(" Element of new Map" + theResultOfMapForum.size());
+        theResultOfMapForum.entrySet().stream()
+                .map(entry -> entry.getKey() + "---" + entry.getValue())
+                .forEach(System.out::println);
     }
-
-
 }
