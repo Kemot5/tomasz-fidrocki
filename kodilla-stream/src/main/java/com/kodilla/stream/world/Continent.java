@@ -1,27 +1,24 @@
 package com.kodilla.stream.world;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public final class  Continent {
-    List<Country> getEurope() {
-
-        List<Country> europe = new ArrayList<>();
+    List<Country> country = new ArrayList<>();
 
 
-        return europe;
+    public List<Country> getCountry() {
+
+
+        return  country;
     }
-    List<Country>getAsia() {
-        List<Country>asia= new ArrayList<>();
 
-        return asia;
-    }
-    List<Country>getAmeryka(){
-            List<Country> ameryka = new ArrayList<>();
-
-            return ameryka;
-        }
+    public void addCountry(Country country) {
+        this.country.add(country);
+}
 }
 
 

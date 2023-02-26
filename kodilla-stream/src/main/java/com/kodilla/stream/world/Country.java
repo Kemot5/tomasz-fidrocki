@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public final class Country {
     private final String nameCountry;
-    private final BigInteger peopleQuantity;
+    private final BigDecimal peopleQuantity;
 
-    public  Country(String nameCountry, BigInteger peopleQuantity) {
+    public  Country(String nameCountry, BigDecimal peopleQuantity) {
         this.nameCountry = nameCountry;
         this.peopleQuantity = peopleQuantity;
     }
@@ -17,7 +17,7 @@ public final class Country {
         return nameCountry;
     }
 
-    public BigInteger getPeopleQuantity() {
+    public BigDecimal getPeopleQuantity() {
         return peopleQuantity;
     }
 
@@ -40,4 +40,6 @@ public final class Country {
                 ", peopleQuantity=" + peopleQuantity +
                 '}';
     }
+
+
 }
