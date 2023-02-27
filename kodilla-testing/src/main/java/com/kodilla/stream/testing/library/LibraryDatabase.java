@@ -8,6 +8,7 @@ public interface LibraryDatabase {
     List<Book>listBooksWithCondition(String titleFragment);
     List<Book>listBookInHandOf(LibraryUser libraryUser);
     boolean rentABook(LibraryUser libraryUser, Book book);
+
     int returnBooks(LibraryUser libraryUser);
 
 }
