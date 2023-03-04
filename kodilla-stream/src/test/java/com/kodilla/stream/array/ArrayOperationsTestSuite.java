@@ -21,7 +21,7 @@ public class ArrayOperationsTestSuite {
         double result = ArrayOperations.getAverage(newNumbers);
         double expextResult = average;
 
-        //then
+        //Then
         assertEquals(expextResult, result);
         System.out.println("Show avreage after stream   --"+ Arrays.stream(newNumbers).average());
 

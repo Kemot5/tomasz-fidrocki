@@ -12,6 +12,7 @@ public interface ArrayOperations {
                      .map(i->numbers[i])
                                      .forEach(System.out::println);
 
+
         Double averageNumber = IntStream.range(0, numbers.length)
                 .mapToDouble(i->numbers[i])
 
